@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
-  "name": "ng5-table",
-  "version": "0.0.1",
+  "name": "sonal-table",
+  "version": "0.0.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

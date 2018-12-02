@@ -1,1 +1,1 @@
-export * from './src/app/table/table.module';
+export * from'./src/app/table/index';

@@ -1,36 +1,40 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+/**
+ * @author sonal prajapati
+ */
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'ng5-table',
+  selector: 'sonal-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-// Declare variable
-private temp: any[];
-@Input() public heading: any[];
-@Input() public studentList: any[];
-@Input('data') set data(value) {
-  this.temp = value;
-}
-@Output() editClicked = new EventEmitter();
-@Output() deleteClicked = new EventEmitter();
-constructor() {
-}
-get data(): any {
-  return this.temp;
-}
-ngOnInit() {
-  console.log(this.studentList);
-  console.log(this.temp);
+// declare variable
+  public student;
+  public key;
+  @Input() public header;
+  @Input() set studentList(value) {
+    this.student = value;
+    this.student.forEach(element => {
+      this.key = Object.keys(element);
+    });
+  }
+  @Output() editClicked = new EventEmitter();
+  @Output() deleteClicked = new EventEmitter();
+// get student list
+  get studentList() {
+    return this.student;
+  }
+  constructor() { }
 
-}
-// Emit an event when user click on the button.
-public onEdit(data) {
-  this.editClicked.emit(data);
-}
-// Emit an event when user click on the button
-public onDelete(id) {
-  this.deleteClicked.emit(id);
-}
+  ngOnInit() {
+  }
+  // Emit an event when user click on the button.
+  public onEdit(id: any) {
+    this.editClicked.emit(id);
+  }
+  // Emit an event when user click on the button
+  public onDelete(id: any) {
+    this.deleteClicked.emit(id);
+  }
 }
