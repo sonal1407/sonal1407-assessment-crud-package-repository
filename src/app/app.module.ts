@@ -6,13 +6,16 @@ import { NgModule } from '@angular/core';
 // ----------------------------------------------//
 import { AppComponent } from './app.component';
 import { TableModule } from './table/table.module';
+import { StatusDirective } from './status.directive';
+
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StatusDirective,
   ],
   imports: [
     BrowserModule,
